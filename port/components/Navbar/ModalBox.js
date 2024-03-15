@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 function ModalBox() {
   return (
-    <motion.div className='modal bg-violet-100 w-64 h-34 mt-5 z-1 rounded-lg' whileInView={{x:[0,40]}}
+    <motion.div className='modal bg-blue-200 w-64 h-34 mt-5 z-1 rounded-lg' whileInView={{x:[0,40]}}
     transition={{duration:0.5, type:"tween"}}>
       <p>I am <span className='font-bold text-blue-600'>Rahul Kumar</span></p>
       <p>A <span className='font-bold text-blue-600'> Backend Developer.</span></p>

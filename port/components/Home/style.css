@@ -1,0 +1,13 @@
+.img{
+    width:24em;
+    height: 24em;
+}
+.nav{
+    object-fit: cover;
+    width:100%;
+    height:100%
+}
+.nxt{
+    width:35em;
+    height: 24em;
+}

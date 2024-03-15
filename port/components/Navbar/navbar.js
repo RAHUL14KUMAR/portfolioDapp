@@ -8,7 +8,7 @@ function navbar() {
     const [modal,setModal]=useState(false);
   return (
     <div className='pos backdrop-blur-sm'>
-      <div className='bg-violet-100 p-3 flex items-center justify-between'>
+      <div className='bg-blue-200 p-3 flex items-center justify-between'>
         <div className='w-20 h-20 border-4 border-violet-950 rounded-full flex items-center justify-center overflow-hidden' onClick={()=>setModal(!modal)} >
             <Image src='/logo.jpeg' alt="" width={80} height={80} className='nav' />
         </div>
