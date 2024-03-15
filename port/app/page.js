@@ -1,6 +1,7 @@
 "use client"
 import Login from './login/page'
 import { useState,useEffect } from 'react'
+import Connected from './Connected/page'
 
 export default function Home() {
 
@@ -53,10 +54,9 @@ export default function Home() {
       console.log(error)
     }
   }
-  console.log("adddress",walletAddress)
   return (
     <div>
-      {isConnected? <div>hi</div>:
+      {isConnected? <Connected/>:
       <Login connectWallet={connectToMetaMask} />}
     </div>
   )
