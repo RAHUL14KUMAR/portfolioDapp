@@ -1,0 +1,44 @@
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border:2px solid red */
+
+  width:2em;
+  height:2em
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.img{
+  width:24em;
+  height: 24em;
+}
+.nav{
+  object-fit: cover;
+  width:100%;
+  height:100%
+}
+.nxt{
+  width:35em;
+  height: 24em;
+}
+.swipe{
+  width:2em;
+  height:2em;
+}

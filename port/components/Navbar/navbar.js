@@ -1,11 +1,14 @@
 "use client"
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import './style.css'
 import Image from 'next/image'
 import ModalBox from './ModalBox'
+import { useRouter } from 'next/navigation'
 
-function navbar() {
+function navbar(props) {
     const [modal,setModal]=useState(false);
+    const router=useRouter();
+    
   return (
     <div className='pos backdrop-blur-sm'>
       <div className='bg-blue-200 p-3 flex items-center justify-between'>
@@ -14,8 +17,8 @@ function navbar() {
         </div>
         
         <div className='p-2 flex overflow-hidden'>
-            <div className='mx-4 p-2 text-xl font-mono text-voilet-950 hover:border-b-4 hover:border-b-violet-950 font-bold tracking-widest'>Home</div>
-            <div className='mx-4 p-2 text-xl font-mono text-voilet-950 hover:border-b-4 hover:border-b-violet-950 font-bold tracking-widest'>Projects</div>
+            <div className='mx-4 p-2 text-xl font-mono text-voilet-950 hover:border-b-4 hover:border-b-violet-950 font-bold tracking-widest' onClick={()=>router.push('/')}>Home</div>
+            <div className='mx-4 p-2 text-xl font-mono text-voilet-950 hover:border-b-4 hover:border-b-violet-950 font-bold tracking-widest' onClick={()=>router.push('/Projects')}>Projects</div>
             <div className='mx-4 p-2 text-xl font-mono text-voilet-950 hover:border-b-4 hover:border-b-violet-950 font-bold tracking-widest'>Educations</div>
         </div>
       </div>

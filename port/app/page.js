@@ -2,8 +2,10 @@
 import Login from './login/page'
 import { useState,useEffect } from 'react'
 import Connected from './Connected/page'
+import { useStateValue } from '@/stateProvider'
 
 export default function Home() {
+  const [{providers},dispatch]=useStateValue();
 
   useEffect(()=>{
     if(typeof window !== 'undefined'){
@@ -35,7 +37,7 @@ export default function Home() {
   const [walletAddress,setWalletAddress] = useState('');
   const [isConnected,setIsConnected] = useState(false);
 
-  let provider=typeof window !== 'undefined' && window.ethereum;;
+  let  provider=typeof window !== 'undefined' && window.ethereum;
 
   async function connectToMetaMask(){
     try{
@@ -50,13 +52,18 @@ export default function Home() {
         setWalletAddress(accounts[0]);
         setIsConnected(true);
       }
+
+      dispatch({
+        type:'SET_PROVIDER',
+        providers:provider
+      })  
     }catch(error){
       console.log(error)
     }
   }
   return (
     <div>
-      {isConnected? <Connected/>:
+      {isConnected? <Connected account={walletAddress} provider={provider}/>:
       <Login connectWallet={connectToMetaMask} />}
     </div>
   )
