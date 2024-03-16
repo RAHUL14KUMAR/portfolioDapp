@@ -8,7 +8,7 @@ import Web3 from 'web3';
 import { Abi,address } from '@/components/contract/Abi';
 
 function page() {
-    const [{providers},dispatch]=useStateValue();
+    const [{providers,accounts,contracts},dispatch]=useStateValue();
 
     const [name,setName]=useState('');
     const [description,setDescription]=useState('');
@@ -17,7 +17,7 @@ function page() {
 
     const addProject=async()=>{
 
-        const res=await get();
+        const res=await insertProject();
         console.log(res);
 
     }
@@ -31,6 +31,18 @@ function page() {
         const contract=await getContract();
         return contract;
     }
+
+    console.log("accounts",accounts);
+
+    async function insertProject(){
+        const contract=await get();
+        // console.log("object",contract.methods);
+        const res=await contract.methods.insertProjeect(name,description,link,image).send({from:accounts});
+        
+        console.log("from insert project",res);
+    }
+
+    console.log("global",contracts)
 
   return (
     <div className='w-screen h-screen overflow-hidden'>

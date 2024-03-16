@@ -5,7 +5,7 @@ import Connected from './Connected/page'
 import { useStateValue } from '@/stateProvider'
 
 export default function Home() {
-  const [{providers},dispatch]=useStateValue();
+  const [{providers,accounts},dispatch]=useStateValue();
 
   useEffect(()=>{
     if(typeof window !== 'undefined'){
@@ -27,6 +27,10 @@ export default function Home() {
   function handleAccountChange(accounts,account){
     if(accounts.length>0 && account!==accounts[0]){
       setWalletAddress(accounts[0]);
+      dispatch({
+        type:'SET_ACCOUNT',
+        account:accounts[0]
+      })
       setIsConnected(true);
     }else{
       setWalletAddress('');
@@ -50,6 +54,10 @@ export default function Home() {
 
       if(accounts.length){
         setWalletAddress(accounts[0]);
+        dispatch({
+          type:'SET_ACCOUNT',
+          account:accounts[0]
+        })
         setIsConnected(true);
       }
 

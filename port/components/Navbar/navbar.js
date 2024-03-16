@@ -4,10 +4,17 @@ import './style.css'
 import Image from 'next/image'
 import ModalBox from './ModalBox'
 import { useRouter } from 'next/navigation'
+import { useStateValue } from '@/stateProvider'
 
 function navbar(props) {
     const [modal,setModal]=useState(false);
     const router=useRouter();
+    const [{providers,accounts},dispatch]=useStateValue();
+
+    useEffect(()=>{
+      console.log("navbar",accounts);
+      console.log("navbar",providers);
+    },[])
     
   return (
     <div className='pos backdrop-blur-sm'>

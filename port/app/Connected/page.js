@@ -4,8 +4,10 @@ import Home from '@/components/Home/Home'
 import Hero from '@/components/Hero/Hero'
 import Web3 from "web3";
 import { address ,Abi} from '@/components/contract/Abi';
+import { useStateValue } from '@/stateProvider';
 
 function page(prop) {
+  const [{providers,accounts,contracts},dispatch]=useStateValue();
 
   let cont;
 
@@ -20,6 +22,11 @@ function page(prop) {
 
   async function get(){
     const contract=await getContract();
+    // console.log(typeof (contract))
+    dispatch({
+      type:'SET_CONTRACT',
+      contract:contract
+    })
     return contract;
   }
   return (
